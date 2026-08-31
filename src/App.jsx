@@ -10,6 +10,8 @@ import { ExamSimulator } from './components/ExamSimulator';
 import { AchievementsView } from './components/AchievementsView';
 import { ContentManager } from './components/ContentManager';
 import { ProfileModal } from './components/ProfileModal';
+import { DualText } from './components/BilingualText';
+import { ShieldAlert, Heart } from 'lucide-react';
 
 import { CURRICULUM_SUBJECTS as INITIAL_SUBJECTS } from './data/curriculumData';
 import {
@@ -272,17 +274,44 @@ export function App() {
         forceCreation={!currentProfile}
       />
 
-      {/* Footer */}
+      {/* Footer Permanente con Mensaje Aclaratorio y Descargo de Responsabilidad */}
       <footer style={{
         background: '#ffffff',
         borderTop: '1px solid var(--border-color)',
-        padding: '20px 0',
-        textAlign: 'center',
-        fontSize: '0.85rem',
-        color: 'var(--text-muted)'
+        padding: '32px 0 24px',
+        color: 'var(--text-secondary)'
       }}>
-        <div className="container">
-          <p>© 2026-2027 Plataforma de Estudio Gimnasio Calatrava • 4to de Primaria Calendario B</p>
+        <div className="container" style={{ maxWidth: '980px' }}>
+          {/* Tarjeta de Descargo de Responsabilidad / Disclaimer */}
+          <div style={{
+            background: '#f8fafc',
+            border: '1.5px solid #e2e8f0',
+            borderRadius: 'var(--radius-lg)',
+            padding: '20px 24px',
+            marginBottom: '20px',
+            boxShadow: 'var(--shadow-sm)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#4338ca', fontWeight: 800, fontSize: '0.92rem' }}>
+              <Heart size={18} color="#4f46e5" fill="#4f46e5" />
+              <DualText
+                es="Nota Informativa & Descargo de Responsabilidad"
+                en="Educational Notice & Disclaimer"
+                inline
+              />
+            </div>
+            
+            <p style={{ fontSize: '0.86rem', lineHeight: 1.6, color: '#334155', marginBottom: '10px' }}>
+              Esta plataforma web fue creada con fines estrictamente pedagógicos por un <strong>padre de familia para el apoyo y repaso escolar de su hijo</strong>, basada en los temarios y textos guía de 4to de primaria del Colegio Gimnasio Calatrava.
+            </p>
+
+            <p style={{ fontSize: '0.82rem', lineHeight: 1.55, color: '#64748b' }}>
+              ⚠️ <strong>Aclaración institucional:</strong> Esta es una iniciativa personal, privada y sin ánimo de lucro. El <strong>Colegio Gimnasio Calatrava no tiene vínculo, autoría, patrocinio ni responsabilidad institucional</strong> sobre este sitio web, sus contenidos, ejercicios o el uso que terceros le den a esta plataforma de repaso.
+            </p>
+          </div>
+
+          <div style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            <p>© 2026-2027 Plataforma de Estudio Familiar • Grado 4to Calendario B • Diseñado con ❤️ para el aprendizaje</p>
+          </div>
         </div>
       </footer>
     </div>
