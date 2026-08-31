@@ -95,7 +95,7 @@ export function App() {
     });
 
     setSubjects(updatedSubjects);
-    localStorage.setItem('calatrava_4to_custom_subjects', JSON.stringify(updatedSubjects));
+    localStorage.setItem('estudio_4to_custom_subjects', JSON.stringify(updatedSubjects));
   };
 
   // Navegar directo a un logro desde el Cronograma
@@ -301,11 +301,11 @@ export function App() {
             </div>
             
             <p style={{ fontSize: '0.86rem', lineHeight: 1.6, color: '#334155', marginBottom: '10px' }}>
-              Esta plataforma web fue creada con fines estrictamente pedagógicos por un <strong>padre de familia para el apoyo y repaso escolar de su hijo</strong>, basada en los temarios y textos guía de 4to de primaria del Colegio Gimnasio Calatrava.
+              Esta plataforma web fue creada con fines estrictamente pedagógicos por un <strong>padre de familia para el apoyo y repaso escolar de su hijo</strong>, basada en los temarios y textos guía de 4to de primaria en modalidad bilingüe.
             </p>
 
             <p style={{ fontSize: '0.82rem', lineHeight: 1.55, color: '#64748b' }}>
-              ⚠️ <strong>Aclaración institucional:</strong> Esta es una iniciativa personal, privada y sin ánimo de lucro. El <strong>Colegio Gimnasio Calatrava no tiene vínculo, autoría, patrocinio ni responsabilidad institucional</strong> sobre este sitio web, sus contenidos, ejercicios o el uso que terceros le den a esta plataforma de repaso.
+              ⚠️ <strong>Aclaración de responsabilidad:</strong> Esta es una iniciativa personal, privada e independiente sin ánimo de lucro. <strong>Ninguna institución educativa tiene vínculo, autoría, patrocinio ni responsabilidad institucional</strong> sobre este sitio web, sus contenidos, ejercicios o el uso que se le dé a esta plataforma de repaso.
             </p>
           </div>
 

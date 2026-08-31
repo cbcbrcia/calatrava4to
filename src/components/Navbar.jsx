@@ -52,11 +52,11 @@ export function Navbar({
             fontSize: '1.15rem',
             boxShadow: '0 4px 10px rgba(79, 70, 229, 0.3)'
           }}>
-            C4
+            4°
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <h1 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>Calatrava 4to</h1>
+              <h1 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>Estudio 4to</h1>
               <span className="badge" style={{ background: '#dbeafe', color: '#1e40af', fontSize: '0.65rem' }}>
                 <DualText es="Calendario B" en="Schedule B" inline />
               </span>

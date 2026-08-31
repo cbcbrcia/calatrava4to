@@ -1,4 +1,4 @@
-// Cronograma Oficial Calatrava School 2026-2027 (Grado 4to - Calendario B) - Formato Bilingüe Completo
+// Cronograma Escolar Bilingüe 2026-2027 - 4to Primaria Calendario B
 
 export const ACADEMIC_SCHEDULE = [
   {

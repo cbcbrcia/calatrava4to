@@ -1,7 +1,7 @@
-// Sistema de Perfiles Multiusuario y Persistencia para Estudiantes Calatrava 4to
+// Sistema de Perfiles Multiusuario y Persistencia para Estudiantes de 4to Primaria
 
-const PROFILES_KEY = 'calatrava_4to_profiles_list';
-const ACTIVE_PROFILE_ID_KEY = 'calatrava_4to_active_profile_id';
+const PROFILES_KEY = 'estudio_4to_profiles_list';
+const ACTIVE_PROFILE_ID_KEY = 'estudio_4to_active_profile_id';
 
 // Lista de Avatares infantiles predeterminados
 export const AVATAR_OPTIONS = [
@@ -61,7 +61,7 @@ export function createProfile(name, course = '401', avatarId = 'owl') {
     },
     completedTopics: [],
     quizResults: [], // Historial detallado de quices: { unitId, score, total, date, subjectName }
-    badges: ['welcome_calatrava']
+    badges: ['welcome_estudio_4to']
   };
 
   const profiles = getAllProfiles();

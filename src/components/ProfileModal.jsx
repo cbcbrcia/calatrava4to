@@ -163,7 +163,7 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
               color: '#64748b',
               lineHeight: 1.5
             }}>
-              👨‍👦 <strong>Iniciativa Familiar Independiente:</strong> Plataforma creada por un padre de familia para su hijo como herramienta de apoyo y repaso basada en temarios escolares. Esta web no tiene vínculo institucional, patrocinio ni responsabilidad oficial del Colegio Gimnasio Calatrava.
+              👨‍👦 <strong>Iniciativa Familiar Independiente:</strong> Plataforma creada por un padre de familia para su hijo como herramienta de apoyo y repaso basada en temarios escolares. Esta web no tiene vínculo institucional, patrocinio ni responsabilidad oficial de ninguna institución educativa.
             </div>
 
             {/* Botones de Acción */}

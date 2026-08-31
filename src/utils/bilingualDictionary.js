@@ -1,4 +1,4 @@
-// Diccionario Bilingüe y Glosario Pedagógico para 4to de Primaria Calatrava
+// Diccionario Pedagógico Bilingüe - 4to Primaria
 
 export const BILINGUAL_DICTIONARY = {
   // --- SCIENCE / CIENCIAS NATURALES ---

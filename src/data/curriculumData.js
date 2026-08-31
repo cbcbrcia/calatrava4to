@@ -1,4 +1,4 @@
-// Base de datos Curricular Bilingüe Completa - Calatrava 4to Primaria
+// Base de datos Curricular Bilingüe Completa - 4to Primaria
 // Banco de Evaluación Ampliado: 3 preguntas por cada tema (9 preguntas por logro)
 
 export const CURRICULUM_SUBJECTS = [
@@ -603,8 +603,8 @@ export const CURRICULUM_SUBJECTS = [
           },
           {
             id: 'q-soc-9',
-            question: 'En los proyectos escolares de convivencia y el modelo CALAMUN, ¿cuál es la mejor forma de resolver un desacuerdo?',
-            questionEn: 'In school coexistence and the CALAMUN model, what is the best way to resolve a conflict?',
+            question: 'En los proyectos escolares de convivencia y debates estudiantiles de paz, ¿cuál es la mejor forma de resolver un desacuerdo?',
+            questionEn: 'In school coexistence and student peace debates, what is the best way to resolve a conflict?',
             options: [
               'Con violencia y gritos.',
               'A través del diálogo respetuoso, la escucha activa y la búsqueda de acuerdos de paz.',

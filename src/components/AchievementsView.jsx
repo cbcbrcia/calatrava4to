@@ -6,7 +6,7 @@ export function AchievementsView({ stats, completedTopics = [], quizResults = {}
   const BADGES_LIST = [
     {
       id: 'iniciador_estudio',
-      name: 'Primer Paso Calatrava',
+      name: 'Primer Gran Paso',
       desc: 'Inició su plataforma de estudio de 4to Primaria.',
       icon: '🚀',
       color: '#3b82f6',
@@ -96,7 +96,7 @@ export function AchievementsView({ stats, completedTopics = [], quizResults = {}
                 <span className="badge" style={{ background: '#4ade80', color: '#052e16' }}>Activo</span>
               </div>
               <p style={{ color: '#c7d2fe', fontSize: '0.9rem' }}>
-                Colegio Gimnasio Calatrava • Grado 4to de Primaria (Calendario B)
+                Grado 4to de Primaria • Calendario B
               </p>
             </div>
           </div>
