@@ -201,7 +201,7 @@ export function Navbar({
                 {currentProfile?.name || 'Estudiante'}
               </div>
               <div style={{ fontSize: '0.65rem', color: '#2563eb', fontWeight: 700 }}>
-                Curso {currentProfile?.course || '401'} • Perfil
+                Mi Perfil • Historial
               </div>
             </div>
           </button>

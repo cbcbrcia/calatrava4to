@@ -9,7 +9,6 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
   const [activeProfile, setActive] = useState(getActiveProfile());
   const [isCreatingNew, setIsCreatingNew] = useState(forceCreation || profiles.length === 0);
   const [nameInput, setNameInput] = useState('');
-  const [courseInput, setCourseInput] = useState('401');
   const [selectedAvatar, setSelectedAvatar] = useState('owl');
   const [activeViewTab, setActiveViewTab] = useState('profile'); // 'profile', 'history'
 
@@ -20,7 +19,7 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
     if (!nameInput.trim()) return;
 
     sounds.playFanfare();
-    const newProf = createProfile(nameInput, courseInput, selectedAvatar);
+    const newProf = createProfile(nameInput, '4to', selectedAvatar);
     setProfiles(getAllProfiles());
     setActive(newProf);
     setIsCreatingNew(false);
@@ -44,7 +43,7 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
       <div
         className="modal-content animate-bounce-in"
         onClick={e => e.stopPropagation()}
-        style={{ maxWidth: '620px', width: '92%', maxHeight: '90vh', overflowY: 'auto' }}
+        style={{ maxWidth: '600px', width: '92%', maxHeight: '90vh', overflowY: 'auto' }}
       >
         {/* Encabezado del Modal */}
         <div style={{
@@ -99,7 +98,7 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
             </p>
 
             {/* Nombre del Estudiante */}
-            <div style={{ marginBottom: '18px' }}>
+            <div style={{ marginBottom: '20px' }}>
               <label style={{ display: 'block', fontWeight: 700, fontSize: '0.9rem', marginBottom: '6px', color: 'var(--text-primary)' }}>
                 <DualText es="👤 Nombre del Estudiante:" en="Student Name:" inline />
               </label>
@@ -108,7 +107,7 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
                 required
                 value={nameInput}
                 onChange={e => setNameInput(e.target.value)}
-                placeholder="Ejemplo: Lucas, Mateo, Sofía..."
+                placeholder="Ejemplo: Lucas, Mateo, Sofía, Martín..."
                 style={{
                   width: '100%',
                   padding: '12px 16px',
@@ -120,36 +119,8 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
               />
             </div>
 
-            {/* Selección de Curso */}
-            <div style={{ marginBottom: '20px' }}>
-              <label style={{ display: 'block', fontWeight: 700, fontSize: '0.9rem', marginBottom: '8px', color: 'var(--text-primary)' }}>
-                <DualText es="🏫 Curso / Grado:" en="Class / Grade Section:" inline />
-              </label>
-              <div style={{ display: 'flex', gap: '12px' }}>
-                {['401', '402'].map(c => (
-                  <button
-                    key={c}
-                    type="button"
-                    onClick={() => { sounds.playClick(); setCourseInput(c); }}
-                    style={{
-                      flex: 1,
-                      padding: '12px',
-                      borderRadius: 'var(--radius-md)',
-                      border: courseInput === c ? '2px solid #4f46e5' : '1px solid var(--border-color)',
-                      background: courseInput === c ? 'var(--primary-light)' : '#ffffff',
-                      color: courseInput === c ? 'var(--primary)' : 'var(--text-secondary)',
-                      fontWeight: 800,
-                      fontSize: '1.1rem'
-                    }}
-                  >
-                    Curso {c}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {/* Selección de Avatar */}
-            <div style={{ marginBottom: '24px' }}>
+            <div style={{ marginBottom: '22px' }}>
               <label style={{ display: 'block', fontWeight: 700, fontSize: '0.9rem', marginBottom: '8px', color: 'var(--text-primary)' }}>
                 <DualText es="🎨 Elige tu Avatar:" en="Choose your Avatar:" inline />
               </label>
@@ -266,14 +237,9 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
                       {avatarObj.icon}
                     </div>
                     <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2px' }}>
-                        <h4 style={{ fontSize: '1.3rem', color: 'var(--text-primary)', margin: 0 }}>
-                          {activeProfile?.name}
-                        </h4>
-                        <span className="badge" style={{ background: '#dbeafe', color: '#1e40af', fontSize: '0.75rem' }}>
-                          Curso {activeProfile?.course}
-                        </span>
-                      </div>
+                      <h4 style={{ fontSize: '1.3rem', color: 'var(--text-primary)', margin: '0 0 4px 0' }}>
+                        {activeProfile?.name}
+                      </h4>
                       <div style={{ fontSize: '0.85rem', color: '#2563eb', fontWeight: 600 }}>
                         ⭐ Nivel {activeProfile?.stats?.level || 1} • {activeProfile?.stats?.xp || 0} XP • Racha: {activeProfile?.stats?.streak || 1} días
                       </div>
@@ -317,7 +283,7 @@ export function ProfileModal({ isOpen, onClose, onProfileChanged, forceCreation 
                           >
                             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                               <span>{av.icon}</span>
-                              <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{p.name} (Curso {p.course})</span>
+                              <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{p.name}</span>
                             </div>
                             {isCurrent && <Check size={18} color="#4f46e5" />}
                           </div>
