@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  calatrava-4to:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: calatrava-4to-app
+    restart: unless-stopped
+    ports:
+      - "3005:80"
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
