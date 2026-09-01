@@ -183,3 +183,74 @@ export function getStoredStats() {
     perfectQuizzes: 0
   };
 }
+
+// ==========================================
+// BUZÓN DE SOLICITUDES Y AJUSTES DE USUARIOS
+// ==========================================
+const FEEDBACK_REPORTS_KEY = 'repaso_4to_feedback_reports';
+
+export function getAllFeedbackReports() {
+  try {
+    const data = localStorage.getItem(FEEDBACK_REPORTS_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch (e) {
+    console.error('Error al leer reportes de feedback:', e);
+    return [];
+  }
+}
+
+export function saveFeedbackReport(report) {
+  try {
+    const reports = getAllFeedbackReports();
+    const newReport = {
+      id: 'rep_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+      type: report.type || 'error_question', // 'error_question', 'text_adjustment', 'suggestion', 'other'
+      subjectId: report.subjectId || 'General',
+      subjectName: report.subjectName || 'General',
+      topicOrQuestion: report.topicOrQuestion || 'No especificado',
+      reporterName: report.reporterName?.trim() || 'Anónimo / Familia 4to',
+      description: report.description?.trim() || '',
+      status: 'pending', // 'pending', 'resolved', 'dismissed'
+      date: new Date().toLocaleDateString('es-CO', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      timestamp: Date.now()
+    };
+
+    reports.unshift(newReport);
+    localStorage.setItem(FEEDBACK_REPORTS_KEY, JSON.stringify(reports));
+    return newReport;
+  } catch (e) {
+    console.error('Error al guardar reporte:', e);
+    return null;
+  }
+}
+
+export function updateFeedbackReportStatus(reportId, newStatus) {
+  try {
+    const reports = getAllFeedbackReports();
+    const updated = reports.map(r => r.id === reportId ? { ...r, status: newStatus } : r);
+    localStorage.setItem(FEEDBACK_REPORTS_KEY, JSON.stringify(updated));
+    return updated;
+  } catch (e) {
+    console.error('Error al actualizar reporte:', e);
+    return [];
+  }
+}
+
+export function deleteFeedbackReport(reportId) {
+  try {
+    const reports = getAllFeedbackReports();
+    const filtered = reports.filter(r => r.id !== reportId);
+    localStorage.setItem(FEEDBACK_REPORTS_KEY, JSON.stringify(filtered));
+    return filtered;
+  } catch (e) {
+    console.error('Error al eliminar reporte:', e);
+    return [];
+  }
+}
+

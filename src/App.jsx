@@ -10,6 +10,7 @@ import { ExamSimulator } from './components/ExamSimulator';
 import { AchievementsView } from './components/AchievementsView';
 import { ContentManager } from './components/ContentManager';
 import { ProfileModal } from './components/ProfileModal';
+import { FeedbackModal, FloatingFeedbackButton } from './components/FeedbackModal';
 import { DualText } from './components/BilingualText';
 import { ShieldAlert, Heart } from 'lucide-react';
 
@@ -36,6 +37,8 @@ export function App() {
   const [activeQuizUnit, setActiveQuizUnit] = useState(null);
   const [activeQuizSubject, setActiveQuizSubject] = useState(null);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [feedbackContext, setFeedbackContext] = useState({ subject: '', context: '' });
 
   // Perfil del Estudiante Activo
   const [currentProfile, setCurrentProfile] = useState(getActiveProfile());
@@ -263,6 +266,13 @@ export function App() {
             setStats(getStoredStats());
             setQuizResults(getQuizResults());
           }}
+          onReportQuestion={(qInfo) => {
+            setFeedbackContext({
+              subject: activeQuizSubject?.name || 'Evaluación',
+              context: `Pregunta de Quiz: ${qInfo}`
+            });
+            setIsFeedbackModalOpen(true);
+          }}
         />
       )}
 
@@ -273,6 +283,20 @@ export function App() {
         onProfileChanged={handleProfileChanged}
         forceCreation={!currentProfile}
       />
+
+      {/* Modal de Solicitud de Ajustes y Reportes de Familias */}
+      <FeedbackModal
+        isOpen={isFeedbackModalOpen}
+        onClose={() => setIsFeedbackModalOpen(false)}
+        initialSubject={feedbackContext.subject}
+        initialContext={feedbackContext.context}
+      />
+
+      {/* Botón Flotante Permanente */}
+      <FloatingFeedbackButton onClick={() => {
+        setFeedbackContext({ subject: '', context: '' });
+        setIsFeedbackModalOpen(true);
+      }} />
 
       {/* Footer Permanente con Mensaje Aclaratorio y Descargo de Responsabilidad */}
       <footer style={{

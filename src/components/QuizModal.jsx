@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, XCircle, Award, ArrowRight, RotateCcw, Sparkles, Clock, AlertCircle, Shuffle } from 'lucide-react';
+import { X, CheckCircle2, XCircle, Award, ArrowRight, RotateCcw, Sparkles, Clock, AlertCircle, Shuffle, Flag } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { sounds } from '../utils/audioEffects';
 import { saveQuizResult, addXp } from '../utils/storage';
@@ -30,7 +30,7 @@ function shuffleQuestionOptions(q) {
   };
 }
 
-export function QuizModal({ unit, subject, onClose, onFinish }) {
+export function QuizModal({ unit, subject, onClose, onFinish, onReportQuestion }) {
   const [questions, setQuestions] = useState(() => (unit?.quiz || []).map(shuffleQuestionOptions));
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -193,9 +193,35 @@ export function QuizModal({ unit, subject, onClose, onFinish }) {
             </div>
           </div>
 
-          <button onClick={onClose} style={{ color: 'var(--text-muted)' }}>
-            <X size={20} />
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {onReportQuestion && !quizFinished && (
+              <button
+                onClick={() => {
+                  sounds.playClick();
+                  onReportQuestion(`P${currentQuestionIndex + 1}: ${currentQ.questionEn || currentQ.question}`);
+                }}
+                className="btn btn-secondary"
+                style={{
+                  padding: '4px 10px',
+                  fontSize: '0.75rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  color: '#d97706',
+                  borderColor: '#fde68a',
+                  background: '#fffbeb'
+                }}
+                title="Reportar o sugerir corrección sobre esta pregunta"
+              >
+                <Flag size={13} />
+                <span>Reportar</span>
+              </button>
+            )}
+
+            <button onClick={onClose} style={{ color: 'var(--text-muted)' }}>
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         {!quizFinished ? (
