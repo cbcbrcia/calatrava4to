@@ -227,15 +227,10 @@ export function QuizModal({ unit, subject, onClose, onFinish }) {
               </div>
             </div>
 
-            {/* Enunciado de la Pregunta Bilingüe */}
+            {/* Enunciado de la Pregunta (En idioma nativo de la materia) */}
             <div style={{ marginBottom: '24px' }}>
-              <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.4 }}>
-                <DualText
-                  es={currentQ.questionEs || currentQ.question}
-                  en={currentQ.questionEn || currentQ.question}
-                  primary={isEnglishNative ? 'en' : 'es'}
-                  secondaryStyle={{ color: '#2563eb', fontWeight: 600, fontSize: '0.88em', marginTop: '4px' }}
-                />
+              <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', marginBottom: '8px', lineHeight: 1.4, fontWeight: 700 }}>
+                {isEnglishNative ? (currentQ.questionEn || currentQ.question) : (currentQ.questionEs || currentQ.question)}
               </h3>
             </div>
 
@@ -245,6 +240,7 @@ export function QuizModal({ unit, subject, onClose, onFinish }) {
                 const optLetter = String.fromCharCode(65 + idx); // A, B, C, D
                 const optEs = currentQ.optionsEs ? currentQ.optionsEs[idx] : null;
                 const optEn = currentQ.optionsEn ? currentQ.optionsEn[idx] : null;
+                const displayText = isEnglishNative ? (optEn || opt) : (optEs || opt);
 
                 let btnBg = '#ffffff';
                 let btnBorder = 'var(--border-color)';
@@ -306,13 +302,8 @@ export function QuizModal({ unit, subject, onClose, onFinish }) {
                       {optLetter}
                     </span>
 
-                    <div style={{ flex: 1 }}>
-                      <DualText
-                        es={optEs || opt}
-                        en={optEn || opt}
-                        primary={isEnglishNative ? 'en' : 'es'}
-                        secondaryStyle={{ color: '#2563eb', fontSize: '0.84em', fontWeight: 500, marginTop: '2px' }}
-                      />
+                    <div style={{ flex: 1, fontSize: '0.95rem', color: 'inherit' }}>
+                      {displayText}
                     </div>
 
                     {isAnswerSubmitted && idx === currentQ.correctIndex && (
@@ -338,18 +329,13 @@ export function QuizModal({ unit, subject, onClose, onFinish }) {
               }}>
                 <div style={{ fontWeight: 800, fontSize: '0.9rem', marginBottom: '4px' }}>
                   {selectedOption === currentQ.correctIndex ? (
-                    <DualText es="🎉 ¡Excelente! Respuesta Correcta" en="🎉 Great! Correct Answer" inline />
+                    isEnglishNative ? '🎉 Great! Correct Answer' : '🎉 ¡Excelente! Respuesta Correcta'
                   ) : (
-                    <DualText es="💡 Explicación del Razonamiento:" en="💡 Step-by-Step Explanation:" inline />
+                    isEnglishNative ? '💡 Step-by-Step Explanation:' : '💡 Explicación del Razonamiento:'
                   )}
                 </div>
-                <div style={{ fontSize: '0.88rem', lineHeight: 1.5 }}>
-                  <DualText
-                    es={currentQ.explanationEs || currentQ.explanation}
-                    en={currentQ.explanationEn || currentQ.explanation}
-                    primary={isEnglishNative ? 'en' : 'es'}
-                    secondaryStyle={{ color: '#2563eb', fontWeight: 600, marginTop: '4px' }}
-                  />
+                <div style={{ fontSize: '0.9rem', lineHeight: 1.5 }}>
+                  {isEnglishNative ? (currentQ.explanationEn || currentQ.explanation) : (currentQ.explanationEs || currentQ.explanation)}
                 </div>
               </div>
             )}

@@ -17,49 +17,42 @@ import {
 import { sounds } from '../utils/audioEffects';
 import { DualText } from './BilingualText';
 
-// Ejercicios oficiales para que el estudiante resuelva y practique (sin respuestas dadas de antemano)
+// Ejercicios oficiales del Review en inglés puro (sin traducción de enunciados ni soluciones en el placeholder)
 export const OFFICIAL_REVIEW_EXERCISES = [
   {
     id: 'rev-1a',
     section: '1. Write the numerals.',
     title: '1.a) twenty-three thousand, seven hundred and four',
-    titleEs: 'Escribe en cifras el número: veintitrés mil setecientos cuatro',
-    placeholder: 'Ej: 23 704 o 23704...',
+    placeholder: 'Type the numbers...',
     acceptableAnswers: ['23704', '23.704', '23 704'],
-    hint: 'Recuerda que si no hay decenas, se coloca un 0 en esa posición.',
-    hintEn: 'Remember that if there are no tens, put a 0 in that place.'
+    hint: 'Remember: if there are no tens, place a 0 in that place value.'
   },
   {
     id: 'rev-1b',
     section: '1. Write the numerals.',
     title: '1.b) five hundred and forty-three thousand, three hundred and nineteen',
-    titleEs: 'Escribe en cifras: quinientos cuarenta y tres mil trescientos diecinueve',
-    placeholder: 'Ej: 543 319...',
+    placeholder: 'Type the numbers...',
     acceptableAnswers: ['543319', '543.319', '543 319'],
-    hint: 'Son 6 dígitos: 543 en el período de los miles y 319 en las unidades.',
-    hintEn: 'It has 6 digits: 543 in the thousands period and 319 in units.'
+    hint: 'It has 6 digits: 543 in the thousands period and 319 in the units period.'
   },
   {
     id: 'rev-2a',
     section: '2. Write the numbers in words.',
-    title: '2.a) Write in English words: 50 901',
-    titleEs: 'Escribe en palabras en inglés el número: 50 901',
-    placeholder: 'Type the number in words in English...',
+    title: '2.a) 50 901',
+    placeholder: 'Type the words in English...',
     acceptableAnswers: [
       'fifty thousand, nine hundred and one',
       'fifty thousand nine hundred and one',
       'fifty thousand nine hundred one',
       'fifty thousand, nine hundred one'
     ],
-    hint: '50 se escribe "fifty thousand", 900 se escribe "nine hundred" y 1 "and one".',
-    hintEn: '50 is "fifty thousand", 900 is "nine hundred" and 1 is "and one".'
+    hint: '50 in thousands period = "fifty thousand", 900 = "nine hundred" and 1 = "and one".'
   },
   {
     id: 'rev-2b',
     section: '2. Write the numbers in words.',
-    title: '2.b) Write in English words: 659 547',
-    titleEs: 'Escribe en palabras en inglés el número: 659 547',
-    placeholder: 'Type the number in words in English...',
+    title: '2.b) 659 547',
+    placeholder: 'Type the words in English...',
     acceptableAnswers: [
       'six hundred and fifty-nine thousand, five hundred and forty-seven',
       'six hundred fifty-nine thousand five hundred forty-seven',
@@ -67,215 +60,177 @@ export const OFFICIAL_REVIEW_EXERCISES = [
       'six hundred and fifty-nine thousand five hundred and forty-seven',
       'six hundred fifty nine thousand five hundred forty seven'
     ],
-    hint: 'Divide en dos partes: 659 en los miles (six hundred and fifty-nine thousand) y 547 (five hundred and forty-seven).',
-    hintEn: 'Split into thousands (659) and units (547).'
+    hint: 'Split into thousands (six hundred and fifty-nine thousand) and units (five hundred and forty-seven).'
   },
   {
     id: 'rev-3a',
     section: '3. Write the missing numbers or words.',
     title: '3.a) In 423 546, the digit 2 is in the ______ place.',
-    titleEs: 'En 423 546, el dígito 2 está en la posición de las ______ (en inglés).',
-    placeholder: 'Ej: ten thousands...',
-    acceptableAnswers: ['ten thousands', 'ten thousand', 'ten-thousands', 'decenas de mil'],
-    hint: 'Cuenta las posiciones de derecha a izquierda: ones, tens, hundreds, thousands, ten thousands...',
-    hintEn: 'Count from right to left: ones, tens, hundreds, thousands, ten thousands...'
+    placeholder: 'Type the place value...',
+    acceptableAnswers: ['ten thousands', 'ten thousand', 'ten-thousands'],
+    hint: 'Count from right to left: ones, tens, hundreds, thousands, ten thousands...'
   },
   {
     id: 'rev-3b',
     section: '3. Write the missing numbers or words.',
     title: '3.b) In 634 543, the digit 6 is in the ______ place and its value is ______.',
-    titleEs: 'En 634 543, ¿en qué posición está el 6 y cuál es su valor numérico?',
-    placeholder: 'Ej: hundred thousands, 600000',
+    placeholder: 'Type the place and value (e.g. place, value)...',
     acceptableAnswers: [
       'hundred thousands, 600 000',
       'hundred thousands, 600000',
       'hundred thousands, 600.000',
-      'hundred thousand, 600000',
-      'centenas de mil, 600000'
+      'hundred thousand, 600000'
     ],
-    hint: 'El 6 ocupa la sexta posición (Centenas de Mil / Hundred Thousands) y vale 6 x 100.000.',
-    hintEn: 'Digit 6 is in the 6th position (Hundred Thousands), value is 6 x 100,000.'
+    hint: 'Digit 6 is in the 6th position from right (Hundred Thousands), value is 6 x 100,000.'
   },
   {
     id: 'rev-3c',
     section: '3. Write the missing numbers or words.',
     title: '3.c) In 547 893, the digit ______ is in the thousands place and its value is ______.',
-    titleEs: 'En 547 893, ¿qué dígito está en las unidades de mil y cuál es su valor?',
-    placeholder: 'Ej: 7, 7000',
-    acceptableAnswers: ['7, 7 000', '7, 7000', '7, 7.000', '7 y 7000'],
-    hint: 'Busca el dígito en la cuarta columna de derecha a izquierda y calcula su valor.',
-    hintEn: 'Look at the 4th column from right and compute its value.'
+    placeholder: 'Type the digit and value (e.g. digit, value)...',
+    acceptableAnswers: ['7, 7 000', '7, 7000', '7, 7.000', '7 and 7000'],
+    hint: 'Look at the 4th column from right (thousands) and compute its place value.'
   },
   {
     id: 'rev-4a',
     section: '4. Write > or <.',
     title: '4.a) 455 678  [ ? ]  94 675',
-    titleEs: '¿Qué símbolo corresponde: > (mayor que) o < (menor que)?',
-    placeholder: 'Escribe > o <',
-    acceptableAnswers: ['>', 'mayor', '> (mayor)'],
-    hint: 'Cuenta la cantidad de cifras de cada número: un número de 6 cifras siempre es mayor que uno de 5 cifras.',
-    hintEn: 'A 6-digit number is always greater than a 5-digit number.'
+    placeholder: 'Type > or <',
+    acceptableAnswers: ['>', 'greater than'],
+    hint: 'A 6-digit number is always greater than a 5-digit number.'
   },
   {
     id: 'rev-6a',
     section: '6. Arrange the numbers in order. Begin with the greatest.',
-    title: '6.a) Order from greatest to least: 94 797,  944 700,  904 779',
-    titleEs: 'Ordena de mayor a menor: 94 797, 944 700, 904 779',
-    placeholder: 'Ej: 944 700, 904 779, 94 797',
+    title: '6.a) 94 797,  944 700,  904 779',
+    placeholder: 'Type the numbers in order from greatest to least...',
     acceptableAnswers: [
       '944 700, 904 779, 94 797',
       '944700, 904779, 94797',
       '944.700, 904.779, 94.797',
       '944 700 > 904 779 > 94 797'
     ],
-    hint: 'Compara primero los de 6 cifras (944.700 vs 904.779) y al final el de 5 cifras.',
-    hintEn: 'Compare 6-digit numbers first, then the 5-digit number.'
+    hint: 'Compare 6-digit numbers first, then the 5-digit number.'
   },
   {
     id: 'rev-7c',
     section: '7. Round each amount to the nearest hundred dollars.',
-    title: '7.c) Round $56 506 to the nearest hundred dollars:',
-    titleEs: 'Redondea $56 506 a la centena de dólares más cercana:',
-    placeholder: 'Ej: $56 500 o 56500',
+    title: '7.c) $56 506',
+    placeholder: 'Type the rounded amount...',
     acceptableAnswers: ['$56 500', '$56500', '56500', '56 500', '$56.500', '56.500'],
-    hint: 'Mira el dígito de las decenas (0). Como es menor que 5, la centena queda igual.',
-    hintEn: 'Look at the tens digit (0). Since 0 < 5, keep the hundreds digit.'
+    hint: 'Look at the tens digit (0). Since 0 < 5, keep the hundreds digit.'
   },
   {
     id: 'rev-7d',
     section: '7. Round each amount to the nearest hundred dollars.',
-    title: '7.d) Round $37 091 to the nearest hundred dollars:',
-    titleEs: 'Redondea $37 091 a la centena de dólares más cercana:',
-    placeholder: 'Ej: $37 100 o 37100',
+    title: '7.d) $37 091',
+    placeholder: 'Type the rounded amount...',
     acceptableAnswers: ['$37 100', '$37100', '37100', '37 100', '$37.100', '37.100'],
-    hint: 'Mira el dígito de las decenas (9). Como 9 ≥ 5, suma 1 a las centenas.',
-    hintEn: 'Look at tens digit (9). Since 9 >= 5, add 1 to hundreds.'
+    hint: 'Look at the tens digit (9). Since 9 >= 5, add 1 to the hundreds digit.'
   },
   {
     id: 'rev-8c',
     section: '8. Round each amount to the nearest thousand dollars.',
-    title: '8.c) Round $73 231 to the nearest thousand dollars:',
-    titleEs: 'Redondea $73 231 al millar más cercano:',
-    placeholder: 'Ej: $73 000 o 73000',
+    title: '8.c) $73 231',
+    placeholder: 'Type the rounded amount...',
     acceptableAnswers: ['$73 000', '$73000', '73000', '73 000', '$73.000', '73.000'],
-    hint: 'Mira el dígito de las centenas (2). Como 2 < 5, los miles quedan igual.',
-    hintEn: 'Look at hundreds digit (2). Since 2 < 5, keep the thousands digit.'
+    hint: 'Look at the hundreds digit (2). Since 2 < 5, keep the thousands digit.'
   },
   {
     id: 'rev-8d',
     section: '8. Round each amount to the nearest thousand dollars.',
-    title: '8.d) Round $96 602 to the nearest thousand dollars:',
-    titleEs: 'Redondea $96 602 al millar más cercano:',
-    placeholder: 'Ej: $97 000 o 97000',
+    title: '8.d) $96 602',
+    placeholder: 'Type the rounded amount...',
     acceptableAnswers: ['$97 000', '$97000', '97000', '97 000', '$97.000', '97.000'],
-    hint: 'Mira el dígito de las centenas (6). Como 6 ≥ 5, suma 1 a los miles.',
-    hintEn: 'Look at hundreds digit (6). Since 6 >= 5, round up.'
+    hint: 'Look at the hundreds digit (6). Since 6 >= 5, round up the thousands digit.'
   },
   {
     id: 'rev-9c',
     section: '9. Add. Then, complete each rule.',
     title: '9.c) 142 + 324 = ______  ➡️  ______ number + even number = ______ number',
-    titleEs: 'Calcula 142 + 324 y completa la regla (even o odd)',
-    placeholder: 'Ej: 466, even, even',
+    placeholder: 'Type the sum and words (e.g. 466, even, even)...',
     acceptableAnswers: [
       '466, even, even',
       '466, even number, even number',
-      '466 (even + even = even)',
-      '466, par, par'
+      '466 (even + even = even)'
     ],
-    hint: 'Suma 142 + 324. Como 142 termina en 2 (par) y 324 en 4 (par), su suma también es par (even).',
-    hintEn: 'Add 142 + 324. even + even = even.'
+    hint: '142 is even, 324 is even. even + even = even.'
   },
   {
     id: 'rev-9d',
     section: '9. Add. Then, complete each rule.',
     title: '9.d) 537 + 63 = ______  ➡️  ______ number + odd number = ______ number',
-    titleEs: 'Calcula 537 + 63 y completa la regla (even o odd)',
-    placeholder: 'Ej: 600, odd, even',
+    placeholder: 'Type the sum and words (e.g. 600, odd, even)...',
     acceptableAnswers: [
       '600, odd, even',
       '600, odd number, even number',
-      '600 (odd + odd = even)',
-      '600, impar, par'
+      '600 (odd + odd = even)'
     ],
-    hint: '537 es impar (odd) y 63 es impar (odd). ¿La suma de dos impares da par o impar?',
-    hintEn: '537 is odd, 63 is odd. odd + odd = ?'
+    hint: '537 is odd, 63 is odd. odd + odd = even.'
   },
   {
     id: 'rev-11b',
     section: '11. Multiplying odd and even numbers.',
     title: '11.b) 3 x 7 = 21  ➡️  odd number x ______ number = ______ number',
-    titleEs: 'Completa la regla: 3 x 7 = 21  ➡️  odd x ______ = ______',
-    placeholder: 'Ej: odd, odd',
-    acceptableAnswers: ['odd, odd', 'odd number, odd number', 'odd x odd = odd', 'impar, impar'],
-    hint: '3 es impar (odd), 7 es impar (odd) y 21 es impar (odd).',
-    hintEn: '3 is odd, 7 is odd, and 21 is odd.'
+    placeholder: 'Type the missing words (e.g. odd, odd)...',
+    acceptableAnswers: ['odd, odd', 'odd number, odd number', 'odd x odd = odd'],
+    hint: '3 is odd, 7 is odd, and 21 is odd.'
   },
   {
     id: 'rev-11c',
     section: '11. Multiplying odd and even numbers.',
     title: '11.c) 33 x 2 = 66  ➡️  Is the product odd or even?',
-    titleEs: '33 x 2 = 66  ➡️  ¿El producto es odd (impar) o even (par)?',
-    placeholder: 'Escribe odd o even',
-    acceptableAnswers: ['even', 'par', 'even number'],
-    hint: '66 termina en 6, por lo que es divisible por 2 (par / even).',
-    hintEn: '66 ends in 6, so it is even.'
+    placeholder: 'Type odd or even...',
+    acceptableAnswers: ['even', 'even number'],
+    hint: '66 ends in 6, which is divisible by 2 (even).'
   },
   {
     id: 'rev-12a',
     section: '12. Find the factors of a number.',
-    title: '12.a) Find all the factors of 20:',
-    titleEs: 'Encuentra todos los factores / divisores de 20 (ordenados de menor a mayor):',
-    placeholder: 'Ej: 1, 2, 4, 5, 10, 20',
+    title: '12.a) Find the factors of 20.',
+    placeholder: 'Type all the factors in order...',
     acceptableAnswers: [
       '1, 2, 4, 5, 10, 20',
       '1,2,4,5,10,20',
-      '1, 2, 4, 5, 10 y 20'
+      '1, 2, 4, 5, 10 and 20'
     ],
-    hint: 'Busca parejas de números que multiplicados den 20: 1x20, 2x10, 4x5.',
-    hintEn: 'Find factor pairs that multiply to 20: 1x20, 2x10, 4x5.'
+    hint: 'Find factor pairs that multiply to 20: 1x20, 2x10, 4x5.'
   },
   {
     id: 'rev-12b',
     section: '12. Find the factors of a number.',
-    title: '12.b) Find all the factors of 63:',
-    titleEs: 'Encuentra todos los factores / divisores de 63 (ordenados de menor a mayor):',
-    placeholder: 'Ej: 1, 3, 7, 9, 21, 63',
+    title: '12.b) Find the factors of 63.',
+    placeholder: 'Type all the factors in order...',
     acceptableAnswers: [
       '1, 3, 7, 9, 21, 63',
       '1,3,7,9,21,63',
-      '1, 3, 7, 9, 21 y 63'
+      '1, 3, 7, 9, 21 and 63'
     ],
-    hint: 'Parejas que multiplicadas dan 63: 1x63, 3x21, 7x9.',
-    hintEn: 'Factor pairs for 63: 1x63, 3x21, 7x9.'
+    hint: 'Factor pairs for 63: 1x63, 3x21, 7x9.'
   },
   {
     id: 'rev-12c',
     section: '12. Find the factors of a number.',
-    title: '12.c) Find all the factors of 45:',
-    titleEs: 'Encuentra todos los factores / divisores de 45 (ordenados de menor a mayor):',
-    placeholder: 'Ej: 1, 3, 5, 9, 15, 45',
+    title: '12.c) Find the factors of 45.',
+    placeholder: 'Type all the factors in order...',
     acceptableAnswers: [
       '1, 3, 5, 9, 15, 45',
       '1,3,5,9,15,45',
-      '1, 3, 5, 9, 15 y 45'
+      '1, 3, 5, 9, 15 and 45'
     ],
-    hint: 'Parejas que multiplicadas dan 45: 1x45, 3x15, 5x9.',
-    hintEn: 'Factor pairs for 45: 1x45, 3x15, 5x9.'
+    hint: 'Factor pairs for 45: 1x45, 3x15, 5x9.'
   }
 ];
 
 export function MathReviewTools({ onOpenQuiz }) {
-  const [activeToolTab, setActiveToolTab] = useState('review'); // 'review', 'placeValueBoard', 'videos'
+  const [activeToolTab, setActiveToolTab] = useState('review');
   const [inputNumber, setInputNumber] = useState('634543');
   
-  // Estado interactivo para que el estudiante resuelva
   const [studentAnswers, setStudentAnswers] = useState({});
   const [justificationDrafts, setJustificationDrafts] = useState({});
-  const [checkStatus, setCheckStatus] = useState({}); // { [id]: 'correct' | 'incorrect' }
+  const [checkStatus, setCheckStatus] = useState({});
   const [revealedHints, setRevealedHints] = useState({});
 
-  // Desglose para el tablero de valor posicional
   const cleanNumStr = inputNumber.replace(/\D/g, '').slice(0, 7);
   const paddedStr = cleanNumStr.padStart(7, ' ');
   const digits = paddedStr.split('');
@@ -290,7 +245,6 @@ export function MathReviewTools({ onOpenQuiz }) {
     { label: 'Ones', labelEs: 'Unidades', icon: '🎈', color: '#db2777', bg: '#fce7f3', value: 1 }
   ];
 
-  // Comprobar la respuesta que escribió el estudiante
   const handleCheckAnswer = (exercise) => {
     const rawAnswer = (studentAnswers[exercise.id] || '').trim().toLowerCase().replace(/\s+/g, ' ');
     if (!rawAnswer) return;
@@ -408,10 +362,9 @@ export function MathReviewTools({ onOpenQuiz }) {
         </button>
       </div>
 
-      {/* PESTAÑA 1: TALLER PRÁCTICO INTERACTIVO (PARA QUE EL ESTUDIANTE RESUELVA) */}
+      {/* PESTAÑA 1: TALLER PRÁCTICO (EN INGLÉS PURO, SIN TRADUCCIONES EN LOS EJERCICIOS) */}
       {activeToolTab === 'review' && (
         <div className="animate-fade-in">
-          {/* Banner de Orientaciones del Profesor */}
           <div style={{
             background: 'linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%)',
             borderRadius: 'var(--radius-lg)',
@@ -429,10 +382,10 @@ export function MathReviewTools({ onOpenQuiz }) {
                   <span style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>Docente: Lennin David López Castañeda</span>
                 </div>
                 <h3 style={{ color: '#fff', fontSize: '1.4rem', marginBottom: '8px' }}>
-                  Taller de Preparación y Práctica del Review (Logro 01)
+                  Review G1 • Grade 401 & 402
                 </h3>
                 <p style={{ color: '#e2e8f0', fontSize: '0.92rem', lineHeight: 1.55, maxWidth: '720px' }}>
-                  Resuelve cada ejercicio escribiendo tu respuesta y justificando tu procedimiento. Recuerda que la justificación clara en tu cuaderno u hojas cuadriculadas es indispensable para la entrega de la <strong>Carpeta de Trabajo</strong>.
+                  Complete each exercise by typing your answer in English. Remember to write the clear step-by-step justification in your student folder.
                 </p>
               </div>
 
@@ -445,13 +398,13 @@ export function MathReviewTools({ onOpenQuiz }) {
                   style={{ background: '#ffffff', color: '#1e1b4b', fontWeight: 800, fontSize: '0.88rem' }}
                 >
                   <Download size={16} />
-                  Descargar Taller en Blanco (PDF)
+                  Download Printable Worksheet (PDF)
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Lista de Ejercicios para Resolver */}
+          {/* Lista de Ejercicios */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             {OFFICIAL_REVIEW_EXERCISES.map((ex, idx) => {
               const currentStatus = checkStatus[ex.id];
@@ -471,26 +424,23 @@ export function MathReviewTools({ onOpenQuiz }) {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px', marginBottom: '12px' }}>
-                    <span className="badge" style={{ background: '#eff6ff', color: '#1e40af', fontSize: '0.75rem' }}>
+                    <span className="badge" style={{ background: '#eff6ff', color: '#1e40af', fontSize: '0.8rem', fontWeight: 700 }}>
                       {ex.section}
                     </span>
                     <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
-                      Ejercicio #{idx + 1} de {OFFICIAL_REVIEW_EXERCISES.length}
+                      Question #{idx + 1} of {OFFICIAL_REVIEW_EXERCISES.length}
                     </span>
                   </div>
 
-                  {/* Enunciado del Ejercicio */}
-                  <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '4px' }}>
+                  {/* Enunciado en Inglés Puro */}
+                  <h4 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', marginBottom: '18px', fontWeight: 700 }}>
                     {ex.title}
                   </h4>
-                  <p style={{ fontSize: '0.88rem', color: '#2563eb', fontStyle: 'italic', marginBottom: '18px' }}>
-                    🌐 {ex.titleEs}
-                  </p>
 
-                  {/* Campo de Entrada de Respuesta del Estudiante */}
+                  {/* Campo de Entrada de Respuesta */}
                   <div style={{ marginBottom: '14px' }}>
                     <label style={{ display: 'block', fontWeight: 700, fontSize: '0.88rem', marginBottom: '6px', color: 'var(--text-primary)' }}>
-                      ✍️ Tu Respuesta:
+                      ✍️ Your Answer:
                     </label>
                     <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
                       <input
@@ -504,7 +454,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                         disabled={currentStatus === 'correct'}
                         style={{
                           flex: 1,
-                          minWidth: '240px',
+                          minWidth: '260px',
                           padding: '12px 16px',
                           borderRadius: 'var(--radius-md)',
                           border: currentStatus === 'correct' ? '2px solid #10b981' : '1.5px solid #cbd5e1',
@@ -521,12 +471,12 @@ export function MathReviewTools({ onOpenQuiz }) {
                         style={{
                           background: currentStatus === 'correct' ? '#10b981' : '#4f46e5',
                           opacity: !currentAns.trim() ? 0.5 : 1,
-                          padding: '12px 20px',
+                          padding: '12px 22px',
                           fontWeight: 700,
                           fontSize: '0.9rem'
                         }}
                       >
-                        {currentStatus === 'correct' ? '✅ ¡Correcto!' : 'Comprobar'}
+                        {currentStatus === 'correct' ? '✅ Correct!' : 'Check'}
                       </button>
 
                       {currentStatus && (
@@ -534,7 +484,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                           onClick={() => handleResetAnswer(ex.id)}
                           className="btn btn-secondary"
                           style={{ padding: '10px 14px', fontSize: '0.82rem' }}
-                          title="Volver a intentar"
+                          title="Try again"
                         >
                           <RotateCcw size={15} />
                         </button>
@@ -546,7 +496,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                         style={{ fontSize: '0.82rem', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '6px' }}
                       >
                         <HelpCircle size={14} color="#f59e0b" />
-                        <span>{isHintOpen ? 'Ocultar Pista' : '💡 Pista'}</span>
+                        <span>{isHintOpen ? 'Hide Hint' : '💡 Hint'}</span>
                       </button>
                     </div>
                   </div>
@@ -567,7 +517,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                       marginBottom: '12px'
                     }}>
                       <CheckCircle2 size={18} color="#10b981" />
-                      <span>¡Excelente! Tu respuesta es correcta. Recuerda anotar la justificación en tu carpeta.</span>
+                      <span>Great job! That is correct. Make sure to write the justification in your folder.</span>
                     </div>
                   )}
 
@@ -585,11 +535,11 @@ export function MathReviewTools({ onOpenQuiz }) {
                       marginBottom: '12px'
                     }}>
                       <XCircle size={18} color="#ef4444" />
-                      <span>Revisa tu respuesta o consulta la pista 💡 para verificar el procedimiento.</span>
+                      <span>Check your answer or click the Hint 💡 button to review the procedure.</span>
                     </div>
                   )}
 
-                  {/* Pista de Apoyo */}
+                  {/* Pista Conceptual */}
                   {isHintOpen && (
                     <div className="animate-fade-in" style={{
                       background: '#fffbeb',
@@ -600,25 +550,22 @@ export function MathReviewTools({ onOpenQuiz }) {
                       fontSize: '0.88rem',
                       marginBottom: '12px'
                     }}>
-                      <strong>💡 Pista de Razonamiento:</strong> {ex.hint}
-                      <div style={{ fontSize: '0.82rem', color: '#2563eb', marginTop: '2px', fontStyle: 'italic' }}>
-                        🌐 {ex.hintEn}
-                      </div>
+                      <strong>💡 Hint:</strong> {ex.hint}
                     </div>
                   )}
 
-                  {/* Campo Opcional de Borrador de Justificación para la Carpeta */}
+                  {/* Campo de Borrador de Justificación */}
                   <div style={{ marginTop: '10px' }}>
                     <details style={{ fontSize: '0.85rem', color: '#64748b' }}>
                       <summary style={{ cursor: 'pointer', fontWeight: 600, color: '#4f46e5' }}>
-                        📁 Borrador de Justificación (Para redactar tu entrega de carpeta)
+                        📁 Justification Draft (For your student folder)
                       </summary>
                       <div style={{ marginTop: '8px' }}>
                         <textarea
                           rows={2}
                           value={justificationDrafts[ex.id] || ''}
                           onChange={e => setJustificationDrafts({ ...justificationDrafts, [ex.id]: e.target.value })}
-                          placeholder="Explica aquí por qué tu respuesta es correcta (procedimiento, operaciones o regla utilizada)..."
+                          placeholder="Explain why your answer is correct (operations, rules, or steps used)..."
                           style={{
                             width: '100%',
                             padding: '10px 14px',
@@ -641,7 +588,6 @@ export function MathReviewTools({ onOpenQuiz }) {
       {/* PESTAÑA 2: TABLERO DE VALOR POSICIONAL INTERACTIVO */}
       {activeToolTab === 'placeValueBoard' && (
         <div className="animate-fade-in">
-          {/* Banner Explicativo */}
           <div style={{
             background: '#ffffff',
             borderRadius: 'var(--radius-lg)',
@@ -657,10 +603,10 @@ export function MathReviewTools({ onOpenQuiz }) {
           }}>
             <div>
               <h3 style={{ fontSize: '1.35rem', color: 'var(--text-primary)', marginBottom: '6px' }}>
-                Tablero de Valor Posicional (Place Value Chart)
+                Place Value Chart
               </h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem' }}>
-                Herramienta oficial recomendada para imprimir en hoja tamaño carta y usar con marcador borrable en forro de acetato.
+                Official place value board for printing on letter-sized paper to use in acetate folder with dry-erase marker.
               </p>
             </div>
 
@@ -673,7 +619,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                 style={{ background: '#0284c7', fontSize: '0.88rem' }}
               >
                 <Download size={16} />
-                Descargar Tablero PDF
+                Download Chart PDF
               </a>
             </div>
           </div>
@@ -689,14 +635,14 @@ export function MathReviewTools({ onOpenQuiz }) {
           }}>
             <div style={{ marginBottom: '20px' }}>
               <label style={{ display: 'block', fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)', marginBottom: '8px' }}>
-                🔢 Ingresa cualquier número de hasta 7 cifras para ubicarlo en el tablero:
+                🔢 Enter any number up to 7 digits to place it on the chart:
               </label>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <input
                   type="text"
                   value={inputNumber}
                   onChange={e => setInputNumber(e.target.value)}
-                  placeholder="Ej: 634543, 906428, 50901..."
+                  placeholder="Type a number..."
                   style={{
                     padding: '12px 18px',
                     borderRadius: 'var(--radius-md)',
@@ -713,7 +659,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                   style={{ fontSize: '0.88rem' }}
                 >
                   <Sparkles size={16} color="#0284c7" />
-                  Número Aleatorio
+                  Random Number
                 </button>
               </div>
             </div>
@@ -736,8 +682,7 @@ export function MathReviewTools({ onOpenQuiz }) {
                         }}
                       >
                         <div style={{ fontSize: '1.6rem', marginBottom: '2px' }}>{col.icon}</div>
-                        <div style={{ fontSize: '0.78rem', fontWeight: 800, lineHeight: 1.2 }}>{col.label}</div>
-                        <div style={{ fontSize: '0.68rem', opacity: 0.8, fontStyle: 'italic' }}>({col.labelEs})</div>
+                        <div style={{ fontSize: '0.8rem', fontWeight: 800, lineHeight: 1.2 }}>{col.label}</div>
                       </th>
                     ))}
                   </tr>
@@ -766,11 +711,10 @@ export function MathReviewTools({ onOpenQuiz }) {
               </table>
             </div>
 
-            {/* Desglose en Forma Expandida */}
             {cleanNumStr && (
               <div style={{ marginTop: '20px', background: '#f8fafc', padding: '16px 20px', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
                 <div style={{ fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', color: '#64748b', marginBottom: '6px' }}>
-                  Forma Expandida (Expanded Form):
+                  Expanded Form:
                 </div>
                 <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0284c7' }}>
                   {digits
@@ -787,7 +731,7 @@ export function MathReviewTools({ onOpenQuiz }) {
         </div>
       )}
 
-      {/* PESTAÑA 3: VIDEOS TUTORIALES DE APOYO RECOMENDADOS */}
+      {/* PESTAÑA 3: VIDEOS TUTORIALES */}
       {activeToolTab === 'videos' && (
         <div className="animate-fade-in">
           <div style={{ marginBottom: '20px' }}>
@@ -795,13 +739,12 @@ export function MathReviewTools({ onOpenQuiz }) {
               Videos de Apoyo del Docente
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem' }}>
-              Recursos audiovisuales seleccionados por el profesor para que los estudiantes refuercen cada tema:
+              Recursos audiovisuales seleccionados por el profesor para reforzar cada contenido evaluado:
             </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px' }}>
             
-            {/* Video 1 */}
             <div style={{ background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
               <div style={{ background: '#dc2626', color: '#fff', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
                 <Video size={18} />
@@ -824,7 +767,6 @@ export function MathReviewTools({ onOpenQuiz }) {
               </div>
             </div>
 
-            {/* Video 2 */}
             <div style={{ background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
               <div style={{ background: '#0284c7', color: '#fff', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
                 <Video size={18} />
@@ -847,7 +789,6 @@ export function MathReviewTools({ onOpenQuiz }) {
               </div>
             </div>
 
-            {/* Video 3 */}
             <div style={{ background: '#ffffff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
               <div style={{ background: '#16a34a', color: '#fff', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
                 <Video size={18} />
