@@ -56,7 +56,7 @@ export function Navbar({
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <h1 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>Estudio 4to</h1>
+              <h1 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>Repaso 4to</h1>
               <span className="badge" style={{ background: '#dbeafe', color: '#1e40af', fontSize: '0.65rem' }}>
                 <DualText es="Calendario B" en="Schedule B" inline />
               </span>
