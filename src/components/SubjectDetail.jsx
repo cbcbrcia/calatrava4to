@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle2, Circle, BookOpen, Layers, Award, PlayCircle, Clock } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Circle, BookOpen, Layers, Award, PlayCircle, Clock, Sparkles } from 'lucide-react';
 import { sounds } from '../utils/audioEffects';
 import { DualText } from './BilingualText';
+import { MathReviewTools } from './MathReviewTools';
 
 export function SubjectDetail({
   subject,
@@ -289,6 +290,11 @@ export function SubjectDetail({
             })}
           </div>
         </div>
+
+        {/* HERRAMIENTAS OFICIALES Y REVIEW PARA MATEMÁTICAS */}
+        {subject.id === 'matematicas' && (
+          <MathReviewTools onOpenQuiz={() => onOpenQuizForUnit(activeUnit)} />
+        )}
       </div>
     </div>
   );
